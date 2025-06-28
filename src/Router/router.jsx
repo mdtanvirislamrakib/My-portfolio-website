@@ -6,6 +6,7 @@ import RootLayout from "../RootLayout/RootLayout";
 import Home from "../Pages/Home";
 import SkillsSection from "../Pages/SkillsSection";
 import EducationSection from "../Pages/EducationSection";
+import ProjectShowSection from "../Pages/ProjectShowSection";
 
 
 const router = createBrowserRouter([
@@ -25,6 +26,10 @@ const router = createBrowserRouter([
         {
             path: "/education",
             Component: EducationSection
+        },
+        {
+            path: "/projects",
+            Component: ProjectShowSection
         }
     ]
   },
