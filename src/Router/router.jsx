@@ -4,6 +4,7 @@ import {
 } from "react-router";
 import RootLayout from "../RootLayout/RootLayout";
 import Home from "../Pages/Home";
+import SkillsSection from "../Pages/SkillsSection";
 
 
 const router = createBrowserRouter([
@@ -15,6 +16,10 @@ const router = createBrowserRouter([
         {
             index: true,
             Component: Home,
+        },
+        {
+            path: "/skills",
+            Component: SkillsSection
         }
     ]
   },
