@@ -17,6 +17,7 @@ const skillCategories = [
       { name: "React.js", icon: <FaReact className="text-blue-400" /> },
       { name: "React Router", icon: <SiReactrouter className="text-red-400" /> },
       { name: "Framer Motion", icon: <SiFramer className="text-pink-400" /> },
+      { name: "Axios/TanStack", icon: <SiAxios className="text-blue-300" /> },
     ],
     gradient: "from-blue-600/20 to-blue-800/20"
   },
@@ -29,7 +30,6 @@ const skillCategories = [
       { name: "MongoDB", icon: <SiMongodb className="text-green-400" /> },
       { name: "JWT", icon: <SiJsonwebtokens className="text-rose-400" /> },
       { name: "Firebase", icon: <SiFirebase className="text-yellow-400" /> },
-      { name: "Axios/TanStack", icon: <SiAxios className="text-blue-300" /> },
     ],
     gradient: "from-green-600/20 to-green-800/20"
   },

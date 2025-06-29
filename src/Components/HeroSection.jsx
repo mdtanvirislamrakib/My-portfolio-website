@@ -19,7 +19,7 @@ const HeroSection = () => {
 const developer = {
   name: 'MD. Tanvir Islam Rakib',
   title: 'Junior MERN Stack Developer',
-  expertise: ['React', 'Node.js', 'Express', 'MongoDB', 'JavaScript'],
+  expertise: ['React', 'Node.js', 'Express', 'MongoDB'],
   experience: 'I am fresher',
   availability: 'Open for opportunities',
   contact: 'mdtanvirislamrakib7@gmail.com'
