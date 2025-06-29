@@ -1,16 +1,12 @@
-import { FaGithub, FaExternalLinkAlt, FaReact, FaNodeJs, FaStripe, FaGithub as FaGithubIcon } from 'react-icons/fa';
+import { FaGithub, FaExternalLinkAlt, FaReact, FaNodeJs, FaGithub as FaGithubIcon } from 'react-icons/fa';
 import { SiTailwindcss, SiJavascript, SiMongodb, SiExpress, SiFramer, SiJsonwebtokens, SiNetlify, SiVercel, SiReactrouter, SiFirebase, SiSoundcharts } from 'react-icons/si';
-import { motion } from 'framer-motion';
 import { TbBrandFramerMotion } from "react-icons/tb";
+import { motion } from 'framer-motion';
 
-
-
-
-
-import historiVault from "../assets/historiVault.PNG"
-import taskHub from "../assets/freelance-task.PNG"
-import eventify from "../assets/event.PNG"
-import madicare from "../assets/madicare.PNG"
+import historiVault from "../assets/historiVault.PNG";
+import taskHub from "../assets/freelance-task.PNG";
+import eventify from "../assets/event.PNG";
+import madicare from "../assets/madicare.PNG";
 
 const projects = [
   {
@@ -19,7 +15,7 @@ const projects = [
     image: historiVault,
     github: 'https://github.com/mdtanvirislamrakib/Historical-Artifacts-Website',
     live: 'https://historical-artifacts.netlify.app/',
-    bgColor: 'bg-gradient-to-br from-black via-blue-900 to-violet-800',
+    bgColor: 'bg-gradient-to-br from-gray-950 via-blue-900 to-violet-800',
     techStack: [
       { name: 'React', icon: <FaReact className="text-blue-400" /> },
       { name: 'Node.js', icon: <FaNodeJs className="text-green-500" /> },
@@ -35,7 +31,7 @@ const projects = [
     image: taskHub,
     github: 'https://github.com/mdtanvirislamrakib/Freelance-task-marketplace-client',
     live: 'https://freelance-task-matketplace.netlify.app/',
-    bgColor: 'bg-gradient-to-br from-black via-blue-900 to-violet-800',
+    bgColor: 'bg-gradient-to-br from-gray-950 via-blue-900 to-violet-800',
     techStack: [
       { name: 'React', icon: <FaReact className="text-blue-400" /> },
       { name: 'Tailwind CSS', icon: <SiTailwindcss className="text-cyan-400" /> },
@@ -51,7 +47,7 @@ const projects = [
     image: eventify,
     github: 'https://github.com/mdtanvirislamrakib/Event-Explorer-Website',
     live: 'https://eventify-explore-events.netlify.app/',
-    bgColor: 'bg-gradient-to-br from-black via-blue-900 to-violet-800',
+    bgColor: 'bg-gradient-to-br from-gray-950 via-blue-900 to-violet-800',
     techStack: [
       { name: 'React', icon: <FaReact className="text-blue-400" /> },
       { name: 'React Router', icon: <SiReactrouter className="text-red-400" /> },
@@ -66,7 +62,7 @@ const projects = [
     image: madicare,
     github: 'https://github.com/mdtanvirislamrakib/PHUDU-Medical',
     live: 'https://splendid-stroopwafel-1f5da0.netlify.app/',
-    bgColor: 'bg-gradient-to-br from-black via-blue-900 to-violet-800',
+    bgColor: 'bg-gradient-to-br from-gray-950 via-blue-900 to-violet-800',
     techStack: [
       { name: 'React', icon: <FaReact className="text-blue-400" /> },
       { name: 'Tailwind CSS', icon: <SiTailwindcss className="text-cyan-400" /> },
@@ -79,98 +75,75 @@ const projects = [
 
 const ProjectShowSection = () => {
   return (
-    <section
-      id="projects"
-      className="relative bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 text-white min-h-[400vh] py-28"
-    >
-      {/* Title and Subtitle */}
-      <div className="max-w-7xl mx-auto px-6 mb-20 text-center select-none">
-        
-        <motion.div
-          initial={{ opacity: 1, y: 30 }}
+    <section id="projects" className="bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 text-white py-28">
+      <div className="max-w-7xl mx-auto px-6 text-center mb-24 select-none">
+        <motion.h2
+          initial={{ opacity: 0.8, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          viewport={{ once: true, margin: "-100px" }}
-          className="text-center mb-16"
+          transition={{ duration: 0.7 }}
+          className="text-4xl md:text-5xl font-extrabold bg-gradient-to-r from-blue-400 to-blue-600 bg-clip-text text-transparent inline-block"
         >
-          <h2 className="text-4xl md:text-5xl font-bold mb-4">
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-blue-600">
-              Projects
-            </span>
-          </h2>
-          <div className="w-24 h-1 bg-gradient-to-r from-blue-500 to-blue-700 rounded-full mx-auto" />
-          <p className="mt-6 text-lg text-gray-300 max-w-3xl mx-auto">
-            A selection of projects showcasing modern technologies, clean interfaces, and scalable solutions.
-          </p>
-        </motion.div>
+          Projects
+        </motion.h2>
+        <div className="w-24 h-1 bg-gradient-to-r from-blue-500 to-blue-700 rounded-full mx-auto mt-3" />
+        <motion.p
+          initial={{ opacity: 0.8, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7, delay: 0.2 }}
+          className="text-gray-300 mt-6 max-w-3xl mx-auto text-lg"
+        >
+          A selection of projects showcasing modern technologies, clean interfaces, and scalable solutions.
+        </motion.p>
       </div>
 
-      {/* Sticky projects container */}
-      <div className="relative h-[400vh] max-w-7xl mx-auto px-6">
+      <div className="max-w-7xl mx-auto px-6 space-y-28">
         {projects.map((project, index) => (
-          <div
+          <motion.div
             key={index}
-            className="sticky top-0 h-screen w-full flex items-center justify-center"
-            style={{ top: `${index * 10}px` }}
+            initial={{ opacity: 0.8, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true, margin: "-100px" }}
+            className={`rounded-3xl p-6 md:p-12 flex flex-col lg:flex-row items-center gap-10 md:gap-14 ${project.bgColor} shadow-2xl border border-white/10`}
           >
-            <motion.div
-              initial={{ scale: 0.98 }}
-              whileInView={{ opacity: 1, y: 0, scale: 1 }}
-              transition={{ duration: 0.8, delay: 0.15 }}
-              viewport={{ once: true, margin: '-120px' }}
-              className={`w-full max-w-7xl mx-auto rounded-3xl p-12 flex flex-col lg:flex-row gap-14
-                          ${project.bgColor} shadow-xl`}
-              style={{ boxShadow: '0 10px 25px rgba(0,0,0,0.7)' }}
-            >
-              {/* Image */}
-              <div className="w-full lg:w-[55%] h-80 md:h-[30rem] relative overflow-hidden rounded-2xl shadow-lg border border-white/25">
-                <img
-                  src={project.image}
-                  alt={project.name}
-                  className="w-full h-full object-contain absolute inset-0 hover:scale-105 transition-transform duration-600 ease-in-out"
-                  loading="lazy"
-                  draggable={false}
-                />
+            <div className="w-full lg:w-1/2 h-64 md:h-[30rem] rounded-2xl overflow-hidden border border-white/20 shadow-lg">
+              <img
+                src={project.image}
+                alt={project.name}
+                className="w-full h-full object-contain hover:scale-105 transition-transform duration-700 ease-in-out"
+                loading="lazy"
+              />
+            </div>
+            <div className="flex-1 space-y-6 text-left">
+              <h3 className="text-3xl md:text-4xl font-bold">{project.name}</h3>
+              <p className="text-gray-200 leading-relaxed text-base md:text-lg">{project.desc}</p>
+              <div className="flex flex-wrap gap-3">
+                {project.techStack.map(({ name, icon }, i) => (
+                  <span key={i} className="flex items-center gap-2 text-sm md:text-base px-3 py-1.5 bg-black/30 border border-white/20 rounded-lg shadow-sm font-medium">
+                    <span className="text-lg md:text-xl">{icon}</span> {name}
+                  </span>
+                ))}
               </div>
-
-              {/* Content */}
-              <div className="flex-1 flex flex-col justify-center space-y-7 px-3 text-white">
-                <h2 className="text-4xl font-extrabold tracking-tight select-text">{project.name}</h2>
-                <p className="text-lg leading-relaxed text-gray-100 select-text">{project.desc}</p>
-
-                {/* Tech Stack */}
-                <div className="flex flex-wrap gap-4 pt-4">
-                  {project.techStack.map(({ name, icon }, i) => (
-                    <div
-                      key={i}
-                      className="flex items-center gap-2 bg-black/30 px-3 py-1.5 rounded-lg border border-white/20 text-white text-sm font-semibold shadow-sm"
-                    >
-                      <span className="text-xl">{icon}</span> {name}
-                    </div>
-                  ))}
-                </div>
-
-                <div className="flex gap-6 pt-4">
-                  <a
-                    href={project.github}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center gap-3 px-6 py-3 rounded-lg bg-black/70 hover:bg-black/90 transition-colors border border-white/50 hover:border-white/70 shadow-md font-semibold"
-                  >
-                    <FaGithub className="text-xl" /> GitHub
-                  </a>
-                  <a
-                    href={project.live}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center gap-3 px-6 py-3 rounded-lg bg-white text-gray-900 hover:bg-gray-100 transition-colors font-semibold shadow-lg hover:shadow-xl"
-                  >
-                    <FaExternalLinkAlt className="text-lg" /> Live Demo
-                  </a>
-                </div>
+              <div className="flex flex-wrap gap-4 pt-3">
+                <a
+                  href={project.github}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-2 px-5 py-2.5 rounded-lg bg-black/70 hover:bg-black transition border border-white/30 text-sm md:text-base shadow-md font-semibold"
+                >
+                  <FaGithub /> GitHub
+                </a>
+                <a
+                  href={project.live}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-2 px-5 py-2.5 rounded-lg bg-white text-gray-900 hover:bg-gray-200 transition text-sm md:text-base font-semibold shadow-md"
+                >
+                  <FaExternalLinkAlt /> Live Demo
+                </a>
               </div>
-            </motion.div>
-          </div>
+            </div>
+          </motion.div>
         ))}
       </div>
     </section>

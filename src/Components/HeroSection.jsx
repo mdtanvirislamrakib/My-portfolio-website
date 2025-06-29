@@ -38,7 +38,7 @@ const developer = {
     <section className="relative min-h-screen flex items-center justify-center px-4 pt-24 pb-12 overflow-hidden bg-black">
       {/* Glass morphism overlay */}
       <motion.div
-        initial={{ opacity: 0 }}
+        initial={{ opacity: 1 }}
         animate={{ opacity: loaded ? 1 : 0 }}
         transition={{ duration: 1 }}
         className="absolute inset-0 bg-gradient-to-br from-gray-900/70 to-gray-800/80 backdrop-blur-3xl z-0"
