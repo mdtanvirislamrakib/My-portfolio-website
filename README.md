@@ -32,56 +32,50 @@ This is my personal **portfolio website** built using React and modern tools. It
 
 ## 📁 Folder Structure
 
-portfolio-website/
+portfolio-website/  
 │
-├── public/                                # Public assets
-│   ├── favicon.ico
-│   └── index.html
+├── public/                                # Public assets  
+│   ├── favicon.ico  
+│   └── index.html  
 │
-├── src/                                   # Source code root
+├── src/                                   # Source code root  
+│  
+│   ├── assets/                            # Static assets  
+│   │   ├── images/                        # Profile photo, project screenshots  
+│   │   │   └── portfolio-preview.png      # Screenshot for README  
+│   │   ├── logos/                         # Logos, icons  
+│   │   └── css/  
+│   │       ├── index.css                  # Main Tailwind config  
+│   │       └── prism-theme.css            # PrismJS custom theme (optional)  
 │
-│   ├── assets/                            # Static assets
-│   │   ├── images/                        # Profile photo, project screenshots
-│   │   │   └── portfolio-preview.png      # Screenshot for README
-│   │   ├── logos/                         # Logos, icons
-│   │   └── css/
-│   │       ├── index.css                  # Main Tailwind config
-│   │       └── prism-theme.css            # PrismJS custom theme (optional)
+│   ├── components/                        # Reusable UI components  
+│   │   ├── Navbar.jsx                     # Navigation bar  
+│   │   ├── HeroSection.jsx                # Introduction + Resume + Typewriter  
+│   │   └── AboutSection.jsx               # About Me Section  
 │
-│   ├── components/                        # Reusable UI components
-│   │   ├── Navbar.jsx                     # Navigation bar
-│   │   ├── HeroSection.jsx                # Introduction + Resume + Typewriter
-│   │   └── AboutSection.jsx               # About Me Section
+│   ├── pages/                             # Core sections as pages  
+│   │   ├── Home.jsx                       # Renders all page sections  
+│   │   ├── SkillsSection.jsx              # Skill categories + visuals  
+│   │   ├── EducationSection.jsx           # Education timeline  
+│   │   ├── ProjectsSection.jsx            # Project cards  
+│   │   └── ContactSection.jsx             # Contact form + details  
 │
-│   ├── pages/                             # Core sections as pages
-│   │   ├── Home.jsx                       # Renders all page sections
-│   │   ├── SkillsSection.jsx              # Skill categories + visuals
-│   │   ├── EducationSection.jsx           # Education timeline
-│   │   ├── ProjectsSection.jsx            # Project cards
-│   │   └── ContactSection.jsx             # Contact form + details
+│   ├── RootLayout/                        # App shell layout  
+│   │   └── RootLayout.jsx                 # Contains header, footer, Outlet  
 │
-│   ├── RootLayout/                        # App shell layout
-│   │   └── RootLayout.jsx                 # Contains header, footer, Outlet
+│   ├── router/                            # Routing setup  
+│   │   └── router.jsx                     # React Router DOM configuration   
 │
-│   ├── router/                            # Routing setup
-│   │   └── router.jsx                     # React Router DOM configuration
+│   ├── App.jsx                            # App entry with router provider  
+│   ├── main.jsx                           # ReactDOM render  
+│   └── index.css                          # Tailwind CSS import  
 │
-│   ├── hooks/                             # Custom hooks (optional)
-│   │   └── useScrollToTop.js              # Scroll-to-top behavior on route change
-│
-│   ├── utils/                             # Utility/helper functions (optional)
-│   │   └── sendEmail.js                   # EmailJS wrapper function
-│
-│   ├── App.jsx                            # App entry with router provider
-│   ├── main.jsx                           # ReactDOM render
-│   └── index.css                          # Tailwind CSS import
-│
-├── .gitignore
-├── package.json
-├── tailwind.config.js
-├── postcss.config.js
-├── README.md                              # Your professional README
-└── vite.config.js or webpack.config.js    # Depends on setup
+├── .gitignore  
+├── package.json  
+├── tailwind.config.js  
+├── postcss.config.js  
+├── README.md                              # Your professional README  
+└── vite.config.js or webpack.config.js    # Depends on setup  
 
 
 ---
@@ -150,9 +144,9 @@ This project is open source and available under the [MIT License](LICENSE).
 
 **MD. Tanvir Islam Rakib**  
 BGIFT Institute of Science & Technology  
-📧 mdtanvirislamrakib7@email.com 
-🌐 [GitHub](https://github.com/mdtanvirislamrakib)  
-🔗 [LinkedIn](https://www.linkedin.com/in/tanvir-islam-rakib/)
+📧 mdtanvirislamrakib7@email.com  
+🌐 [GitHub](https://github.com/mdtanvirislamrakib)    
+🔗 [LinkedIn](https://www.linkedin.com/in/tanvir-islam-rakib/)  
 
 ---
 
