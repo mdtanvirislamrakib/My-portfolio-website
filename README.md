@@ -31,64 +31,64 @@ This is my personal **portfolio website** built using React and modern tools. It
 ---
 
 ## 📁 Folder Structure
+```plaintext
 portfolio-website/
+├── public/                  # Static files served directly
+│   ├── favicon.ico          # Favicon for browser tab
+│   └── index.html           # HTML entry point
 │
-├── public/                              # Static files served directly
-│   ├── favicon.ico                     # Favicon for browser tab
-│   └── index.html                      # HTML entry point
-│
-├── src/                                # Source files
-│   ├── assets/                         # Static assets like images, icons, styles
-│   │   ├── css/                       # CSS files (Tailwind base, Prism theme)
-│   │   │   ├── index.css              # Tailwind imports and global styles
-│   │   │   └── prism-theme.css        # PrismJS syntax highlighting theme
-│   │   ├── images/                    # Photos, project screenshots
+├── src/                     # Source files
+│   ├── assets/              # Static assets (images, icons, styles)
+│   │   ├── css/             # CSS files (Tailwind base, Prism theme)
+│   │   │   ├── index.css    # Tailwind imports and global styles
+│   │   │   └── prism-theme.css # PrismJS syntax highlighting theme
+│   │   ├── images/          # Photos, project screenshots
 │   │   │   └── portfolio-preview.png
-│   │   └── logos/                     # Brand logos, icons if separate from react-icons
+│   │   └── logos/           # Brand logos, icons separate from react-icons
 │   │
-│   ├── components/                    # Reusable UI components (small to medium)
-│   │   ├── Navbar/                   # Navbar folder (if complex, else just Navbar.jsx)
+│   ├── components/          # Reusable UI components (small to medium)
+│   │   ├── Navbar/          # Navbar folder (optional CSS Modules)
 │   │   │   ├── Navbar.jsx
-│   │   │   └── Navbar.module.css      # Optional: CSS Module or Tailwind styles
+│   │   │   └── Navbar.module.css
 │   │   ├── HeroSection/
 │   │   │   ├── HeroSection.jsx
 │   │   │   └── HeroSection.module.css
 │   │   ├── AboutSection/
 │   │   │   ├── AboutSection.jsx
 │   │   │   └── AboutSection.module.css
-│   │   └── common/                   # Shared small components (Buttons, Icons, etc.)
+│   │   └── common/          # Shared small components (Buttons, Icons)
 │   │       ├── Button.jsx
 │   │       └── SocialLinks.jsx
 │   │
-│   ├── pages/                        # Page-level components or sections
-│   │   ├── Home.jsx                  # Main landing page rendering all sections
+│   ├── pages/               # Page-level components or sections
+│   │   ├── Home.jsx         # Main landing page rendering all sections
 │   │   ├── SkillsSection.jsx
 │   │   ├── EducationSection.jsx
 │   │   ├── ProjectsSection.jsx
 │   │   └── ContactSection.jsx
 │   │
-│   ├── layouts/                     # Layout components (shells, wrappers)
-│   │   └── RootLayout.jsx           # Contains Navbar, Footer, Outlet for routing
+│   ├── layouts/             # Layout components (shells, wrappers)
+│   │   └── RootLayout.jsx   # Contains Navbar, Footer, Outlet for routing
 │   │
-│   ├── router/                     # Routing logic and config
-│   │   └── router.jsx              # React Router setup
+│   ├── router/              # Routing setup
+│   │   └── router.jsx       # React Router DOM configuration
 │   │
-│   ├── hooks/                      # Custom React hooks (optional)
+│   ├── hooks/               # Custom React hooks (optional)
 │   │   └── useScrollToTop.js
 │   │
-│   ├── utils/                      # Utility/helper functions (optional)
-│   │   └── emailService.js         # EmailJS helper
+│   ├── utils/               # Utility/helper functions (optional)
+│   │   └── emailService.js  # EmailJS helper
 │   │
-│   ├── App.jsx                    # Root app component
-│   ├── main.jsx                   # ReactDOM render / app bootstrap
-│   └── index.css                  # Global CSS imports (Tailwind base etc.)
+│   ├── App.jsx              # Root app component
+│   ├── main.jsx             # ReactDOM render / app bootstrap
+│   └── index.css            # Tailwind CSS import
 │
 ├── .gitignore
 ├── package.json
 ├── tailwind.config.js
 ├── postcss.config.js
 ├── README.md
-└── vite.config.js / webpack.config.js   # Build config depending on your setup
+└── vite.config.js / webpack.config.js  # Build config depending on your setup
 
 
 ---
