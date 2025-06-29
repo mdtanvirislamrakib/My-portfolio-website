@@ -71,7 +71,7 @@ const developer = {
                 <div className="w-20 h-1 bg-gradient-to-r from-blue-500 to-blue-700 rounded-full" />
                 <h2 className="text-3xl font-medium text-gray-300">
                   <Typewriter
-                    words={['MERN Stack Developer', 'Frontend Developer', 'React Developer', 'Node.js Developer', 'Tech Enthusiast']}
+                    words={['MERN Stack Developer', 'Frontend Developer', 'React Developer', 'JavaScript Developer', 'Tech Enthusiast']}
                     loop
                     cursor
                     cursorStyle="|"

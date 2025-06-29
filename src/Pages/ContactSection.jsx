@@ -235,7 +235,7 @@ const ContactSection = () => {
                 </div>
                 <div>
                   <h4 className="text-lg font-semibold text-gray-300">Location</h4>
-                  <p className="text-purple-400">Borabo, Mouchak, Gazipur</p>
+                  <p className="text-purple-400">Mouchak, Gazipur, Bangladesh</p>
                 </div>
               </motion.div>
             </div>

@@ -96,7 +96,7 @@ const AboutSection = () => {
                   <Typewriter
                     words={[
                       'Frontend Developer',
-                      'MERN Specialist',
+                      'MERN Stack Developer',
                       'JavaScript Developer',
                       'React Developer'
                     ]}
