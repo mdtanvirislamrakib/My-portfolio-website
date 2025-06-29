@@ -98,6 +98,7 @@ Skills and expertise overview
 
 Personal interests and values
 
+
 3. Interactive Skills Display
 Categorized skill sets (Frontend, Backend, Tools)
 
