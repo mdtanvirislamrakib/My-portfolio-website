@@ -40,6 +40,7 @@ const ContactSection = () => {
           name: data.name,
           email: data.email,
           subject: data.subject,
+          time: new Date().toLocaleString(),
           message: data.message,
         },
         'z20e81QJ7954OO52b'     // replace
