@@ -73,30 +73,22 @@ portfolio-website/
 │   └── index.html
 ├── src/
 │   ├── assets/
-│   │   ├── css/
-│   │   │   ├── index.css
-│   │   │   └── prism-theme.css
 │   │   ├── images/
 │   │   └── logos/
 │   ├── components/
 │   │   ├── Navbar/
 │   │   ├── HeroSection/
-│   │   ├── AboutSection/
-│   │   └── common/
 │   ├── pages/
 │   │   ├── Home.jsx
+│   │   ├── AboutSection
 │   │   ├── SkillsSection.jsx
 │   │   ├── EducationSection.jsx
 │   │   ├── ProjectsSection.jsx
 │   │   └── ContactSection.jsx
-│   ├── layouts/
+│   ├── RootLayouts/
 │   │   └── RootLayout.jsx
 │   ├── router/
 │   │   └── router.jsx
-│   ├── hooks/
-│   │   └── useScrollToTop.js
-│   ├── utils/
-│   │   └── emailService.js
 │   ├── App.jsx
 │   ├── main.jsx
 │   └── index.css
@@ -174,13 +166,12 @@ This project is licensed under the [MIT License](LICENSE).
 
 **MD. Tanvir Islam Rakib**
 BGIFT Institute of Science & Technology
-📧 [mdtanvirislamrakib7@email.com](mailto:mdtanvirislamrakib7@email.com)
-🌐 [GitHub](https://github.com/mdtanvirislamrakib)
-🔗 [LinkedIn](https://www.linkedin.com/in/tanvir-islam-rakib/)
+📧 [mdtanvirislamrakib7@email.com](mailto:mdtanvirislamrakib7@email.com)  
+🌐 [GitHub](https://github.com/mdtanvirislamrakib)  
+🔗 [LinkedIn](https://www.linkedin.com/in/tanvir-islam-rakib/)  
 
 ---
 
 ## ⭐ Support & Feedback
 
 If you found this helpful or inspiring, don’t forget to ⭐ the repo and share your feedback!
-
