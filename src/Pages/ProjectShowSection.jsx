@@ -1,14 +1,24 @@
 import { FaGithub, FaExternalLinkAlt, FaReact, FaNodeJs, FaStripe, FaGithub as FaGithubIcon } from 'react-icons/fa';
-import { SiTailwindcss, SiJavascript, SiMongodb, SiExpress, SiFramer, SiJsonwebtokens, SiNetlify, SiVercel, SiReactrouter, SiAxios, SiFirebase } from 'react-icons/si';
+import { SiTailwindcss, SiJavascript, SiMongodb, SiExpress, SiFramer, SiJsonwebtokens, SiNetlify, SiVercel, SiReactrouter, SiFirebase, SiSoundcharts } from 'react-icons/si';
 import { motion } from 'framer-motion';
+import { TbBrandFramerMotion } from "react-icons/tb";
+
+
+
+
+
+import historiVault from "../assets/historiVault.PNG"
+import taskHub from "../assets/freelance-task.PNG"
+import eventify from "../assets/event.PNG"
+import madicare from "../assets/madicare.PNG"
 
 const projects = [
   {
-    name: 'ParcelHub',
-    desc: 'ParcelHub is a complete parcel delivery solution built with MERN stack, JWT secured, and Stripe integrated for smooth transactions.',
-    image: '/images/parcelhub.png',
-    github: 'https://github.com/mdtanvirislamrakib/parcelhub-client',
-    live: 'https://parcelhub.netlify.app',
+    name: 'HistoriVault',
+    desc: 'A full-stack MERN-based web application designed to preserve and showcase historical artifacts like the Rosetta Stone, Antikythera Mechanism, and many more. Users can explore, like, and contribute their own historical findings, all within a sleek, interactive, and secure interface.',
+    image: historiVault,
+    github: 'https://github.com/mdtanvirislamrakib/Historical-Artifacts-Website',
+    live: 'https://historical-artifacts.netlify.app/',
     bgColor: 'bg-gradient-to-br from-black via-blue-900 to-violet-800',
     techStack: [
       { name: 'React', icon: <FaReact className="text-blue-400" /> },
@@ -16,51 +26,53 @@ const projects = [
       { name: 'Express', icon: <SiExpress className="text-gray-300" /> },
       { name: 'MongoDB', icon: <SiMongodb className="text-green-400" /> },
       { name: 'JWT', icon: <SiJsonwebtokens className="text-rose-400" /> },
-      { name: 'Stripe', icon: <FaStripe className="text-indigo-400" /> },
-      { name: 'Axios', icon: <SiAxios className="text-blue-300" /> },
+      { name: 'framer-motion', icon: <TbBrandFramerMotion className="text-violet-500" /> },
     ],
   },
   {
-    name: 'DocCure',
-    desc: 'A modern, animated landing page for medical services featuring appointment sections and responsive design.',
-    image: '/images/medicare.png',
-    github: 'https://github.com/mdtanvirislamrakib/medical-landing',
-    live: 'https://doctorecare.netlify.app',
+    name: 'TaskHub',
+    desc: 'TaskHub is a full-stack web application that allows users to post freelance tasks, bid on them, and manage task-based collaborations. It provides dynamic task listings, real-time bid updates, secure authentication, and an engaging user dashboard — all wrapped in a sleek, responsive interface.',
+    image: taskHub,
+    github: 'https://github.com/mdtanvirislamrakib/Freelance-task-marketplace-client',
+    live: 'https://freelance-task-matketplace.netlify.app/',
     bgColor: 'bg-gradient-to-br from-black via-blue-900 to-violet-800',
     techStack: [
       { name: 'React', icon: <FaReact className="text-blue-400" /> },
       { name: 'Tailwind CSS', icon: <SiTailwindcss className="text-cyan-400" /> },
-      { name: 'JavaScript', icon: <SiJavascript className="text-yellow-400" /> },
-      { name: 'Framer Motion', icon: <SiFramer className="text-pink-400" /> },
-      { name: 'Netlify', icon: <SiNetlify className="text-cyan-300" /> },
+      { name: 'Node.js', icon: <FaNodeJs className="text-green-500" /> },
+      { name: 'Express', icon: <SiExpress className="text-gray-300" /> },
+      { name: 'MongoDB', icon: <SiMongodb className="text-green-400" /> },
+      { name: 'Firebase', icon: <SiFirebase className="text-yellow-400" /> },
     ],
   },
   {
-    name: 'HistoriVault',
-    desc: 'HistoriVault is a digital archive for browsing significant historical events, built with modern UI and dynamic routing.',
-    image: '/images/historivault.png',
-    github: 'https://github.com/mdtanvirislamrakib/historivault',
-    live: 'https://historivault.vercel.app',
+    name: 'Eventify',
+    desc: 'Event Explorer is a responsive single-page application built with React, designed to help users discover and explore upcoming local events like conferences, art exhibitions, sports events, and more. Authenticated users can view detailed event pages, reserve seats, and manage their profiles.',
+    image: eventify,
+    github: 'https://github.com/mdtanvirislamrakib/Event-Explorer-Website',
+    live: 'https://eventify-explore-events.netlify.app/',
     bgColor: 'bg-gradient-to-br from-black via-blue-900 to-violet-800',
     techStack: [
       { name: 'React', icon: <FaReact className="text-blue-400" /> },
       { name: 'React Router', icon: <SiReactrouter className="text-red-400" /> },
       { name: 'Firebase', icon: <SiFirebase className="text-yellow-400" /> },
-      { name: 'Vercel', icon: <SiVercel className="text-white" /> },
+      { name: 'Tailwind CSS', icon: <SiTailwindcss className="text-cyan-400" /> },
+      { name: 'Netlify', icon: <SiNetlify className="text-teal-400" /> },
     ],
   },
   {
-    name: 'Portfolio Website',
-    desc: 'Personal portfolio built with React, Framer Motion, and TailwindCSS showcasing skills, projects, and contact info.',
-    image: '/images/portfolio.png',
-    github: 'https://github.com/mdtanvirislamrakib/portfolio',
-    live: 'https://mdtanvirislamrakib.web.app',
+    name: 'MediCare',
+    desc: 'MediCare is a responsive, frontend-only medical web application built using modern web technologies like React and Tailwind CSS. It is designed to provide a clean, intuitive, and professional user interface for showcasing medical services, doctor profiles, statistics, and health-related content.',
+    image: madicare,
+    github: 'https://github.com/mdtanvirislamrakib/PHUDU-Medical',
+    live: 'https://splendid-stroopwafel-1f5da0.netlify.app/',
     bgColor: 'bg-gradient-to-br from-black via-blue-900 to-violet-800',
     techStack: [
       { name: 'React', icon: <FaReact className="text-blue-400" /> },
       { name: 'Tailwind CSS', icon: <SiTailwindcss className="text-cyan-400" /> },
-      { name: 'Framer Motion', icon: <SiFramer className="text-pink-400" /> },
+      { name: 'React Router', icon: <SiReactrouter className="text-red-400" /> },
       { name: 'GitHub', icon: <FaGithubIcon className="text-gray-200" /> },
+      { name: 'Recharts', icon: <SiSoundcharts className="text-sky-400" /> },
     ],
   },
 ];
