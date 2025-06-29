@@ -55,7 +55,7 @@ const EducationSection = () => {
       <div className="relative z-10 max-w-7xl mx-auto">
         {/* Section Header */}
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 1, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
@@ -77,7 +77,7 @@ const EducationSection = () => {
           {educationData.map((edu, index) => (
             <motion.div
               key={edu.id}
-              initial={{ opacity: 0, y: 50 }}
+              initial={{ opacity: 1, y: 50 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: index * 0.2 }}
               viewport={{ once: true }}
@@ -126,7 +126,7 @@ const EducationSection = () => {
 
         {/* Academic Journey Visualization */}
         <motion.div
-          initial={{ opacity: 0 }}
+          initial={{ opacity: 1 }}
           whileInView={{ opacity: 1 }}
           transition={{ duration: 0.8, delay: 0.4 }}
           viewport={{ once: true }}

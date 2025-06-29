@@ -70,7 +70,7 @@ const SkillsSection = () => {
 
       <div className="relative z-10 max-w-7xl mx-auto space-y-16">
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 1, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
           className="text-center"
@@ -90,7 +90,7 @@ const SkillsSection = () => {
           {skillCategories.map((category, i) => (
             <motion.div
               key={category.title}
-              initial={{ opacity: 0, y: 30 }}
+              initial={{ opacity: 1, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ delay: i * 0.15, duration: 0.6 }}
               viewport={{ once: true }}
@@ -123,7 +123,7 @@ const SkillsSection = () => {
 
         {/* Additional Skills */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 1, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.4 }}
           className="mt-8 bg-white/5 backdrop-blur-lg rounded-2xl border border-white/10 p-6"

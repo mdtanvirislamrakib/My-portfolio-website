@@ -75,7 +75,7 @@ const ContactSection = () => {
 
   // Animation variants
   const containerVariants = {
-    hidden: { opacity: 0 },
+    hidden: { opacity: 1 },
     visible: {
       opacity: 1,
       transition: {
@@ -86,7 +86,7 @@ const ContactSection = () => {
   };
 
   const itemVariants = {
-    hidden: { y: 20, opacity: 0 },
+    hidden: { y: 20, opacity: 1 },
     visible: {
       y: 0,
       opacity: 1,
@@ -102,7 +102,7 @@ const ContactSection = () => {
     <section id="contact" className="relative bg-gradient-to-b from-gray-900 to-gray-950 text-white py-24 px-4 overflow-hidden">
       {/* Animated background elements */}
       <motion.div
-        initial={{ scale: 0.8, opacity: 0 }}
+        initial={{ scale: 0.8, opacity: 1 }}
         animate={{ scale: 1, opacity: 0.1 }}
         transition={{ duration: 20, repeat: Infinity, repeatType: 'reverse' }}
         className="absolute inset-0 bg-[url('/grid-pattern.svg')] bg-center opacity-10"
@@ -111,7 +111,7 @@ const ContactSection = () => {
       <div className="relative z-10 max-w-7xl mx-auto">
         {/* Section Header */}
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 1, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
           viewport={{ once: true, margin: "-100px" }}

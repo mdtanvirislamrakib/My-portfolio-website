@@ -85,21 +85,24 @@ const ProjectShowSection = () => {
     >
       {/* Title and Subtitle */}
       <div className="max-w-7xl mx-auto px-6 mb-20 text-center select-none">
-        <motion.h2
-          initial={{ opacity: 0, y: 20 }}
+        
+        <motion.div
+          initial={{ opacity: 1, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7 }}
-          className="text-5xl font-extrabold bg-gradient-to-r from-blue-400 to-blue-600 bg-clip-text text-transparent"
-        >Projects
-        </motion.h2>
-        <motion.p
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, delay: 0.25 }}
-          className="text-gray-300 max-w-3xl mx-auto mt-5 text-lg tracking-wide"
+          transition={{ duration: 0.6 }}
+          viewport={{ once: true, margin: "-100px" }}
+          className="text-center mb-16"
         >
-          A selection of projects showcasing modern technologies, clean interfaces, and scalable solutions.
-        </motion.p>
+          <h2 className="text-4xl md:text-5xl font-bold mb-4">
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-blue-600">
+              Projects
+            </span>
+          </h2>
+          <div className="w-24 h-1 bg-gradient-to-r from-blue-500 to-blue-700 rounded-full mx-auto" />
+          <p className="mt-6 text-lg text-gray-300 max-w-3xl mx-auto">
+            A selection of projects showcasing modern technologies, clean interfaces, and scalable solutions.
+          </p>
+        </motion.div>
       </div>
 
       {/* Sticky projects container */}
@@ -111,7 +114,7 @@ const ProjectShowSection = () => {
             style={{ top: `${index * 10}px` }}
           >
             <motion.div
-              initial={{ opacity: 0, y: 40, scale: 0.98 }}
+              initial={{ scale: 0.98 }}
               whileInView={{ opacity: 1, y: 0, scale: 1 }}
               transition={{ duration: 0.8, delay: 0.15 }}
               viewport={{ once: true, margin: '-120px' }}
@@ -124,7 +127,7 @@ const ProjectShowSection = () => {
                 <img
                   src={project.image}
                   alt={project.name}
-                  className="w-full h-full object-cover absolute inset-0 hover:scale-105 transition-transform duration-600 ease-in-out"
+                  className="w-full h-full object-contain absolute inset-0 hover:scale-105 transition-transform duration-600 ease-in-out"
                   loading="lazy"
                   draggable={false}
                 />

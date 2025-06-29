@@ -18,7 +18,7 @@ const HeroSection = () => {
   const codeSnippet = `// Professional Profile
 const developer = {
   name: 'MD. Tanvir Islam Rakib',
-  title: 'Senior Full Stack Engineer',
+  title: 'Junior MERN Stack Developer',
   expertise: ['React', 'Node.js', 'Express', 'MongoDB', 'JavaScript'],
   experience: 'I am fresher',
   availability: 'Open for opportunities',
@@ -58,7 +58,7 @@ const developer = {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           {/* Left - Intro */}
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 1, y: 30 }}
             animate={loaded ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.8 }}
             className="space-y-8"
@@ -139,7 +139,7 @@ const developer = {
 
           {/* Right - Code Block */}
           <motion.div
-            initial={{ opacity: 0, y: 50 }}
+            initial={{ opacity: 1, y: 50 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.4, duration: 0.8 }}
           >
