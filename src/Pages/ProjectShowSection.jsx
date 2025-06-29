@@ -106,12 +106,13 @@ const ProjectShowSection = () => {
             viewport={{ once: true, margin: "-100px" }}
             className={`rounded-3xl p-6 md:p-12 flex flex-col lg:flex-row items-center gap-10 md:gap-14 ${project.bgColor} shadow-2xl border border-white/10`}
           >
-            <div className="w-full lg:w-1/2 h-64 md:h-[30rem] rounded-2xl overflow-hidden border border-white/20 shadow-lg">
+            <div className="w-full lg:w-1/2 h-auto rounded-2xl overflow-hidden border border-white/20 shadow-lg flex items-center justify-center bg-black/20">
               <img
                 src={project.image}
                 alt={project.name}
-                className="w-full h-full object-contain hover:scale-105 transition-transform duration-700 ease-in-out"
+                className="w-full h-full object-fill hover:scale-105 transition-transform duration-700 ease-in-out"
                 loading="lazy"
+                style={{ maxWidth: '100%', maxHeight: '100%' }}
               />
             </div>
             <div className="flex-1 space-y-6 text-left">
