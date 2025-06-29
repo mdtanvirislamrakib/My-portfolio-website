@@ -15,9 +15,9 @@
 
 ## 🖼️ Screenshots
 
-| Section | Preview |
-|---------|---------|
-| **Hero Section** | ![Hero Section](./src/assets/home.PNG)
+| Preview |
+|---------|
+ ![Hero Section](./src/assets/home.PNG)
 
 ---
 
@@ -82,7 +82,7 @@ portfolio-website/
 ├── tailwind.config.js    # Tailwind configuration
 ├── README.md             # Project documentation
 └── vite.config.js        # Build configuration
-
+```
 ✨ Key Features
 1. Dynamic Hero Section
 Typing animation for professional titles
