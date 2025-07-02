@@ -1,8 +1,8 @@
-"use client"
-
 import { useState, useEffect } from "react"
 import { motion, AnimatePresence } from "framer-motion"
-import { Download, Github, Linkedin, MessageCircle, Copy, Check, Code2, Sparkles } from "lucide-react"
+import { Download, Copy, Check, Code2, Sparkles } from "lucide-react"
+
+import { FaWhatsapp, FaLinkedin, FaGithub   } from "react-icons/fa";
 
 const roles = [
   "MERN Stack Developer",
@@ -19,38 +19,27 @@ const developer = {
   expertise: ['React', 'Node.js', 'Express', 'MongoDB'],
   availability: 'Open for opportunities',
   contact: 'mdtanvirislamrakib7@gmail.com',
-  getSkills() {
-    return this.expertise.map(skill => ({
-      name: skill,
-      level: 'Advanced',
-      yearsOfExperience: 2
-    }));
-  },
-  
-  isAvailable() {
-    return this.availability === 'Open for opportunities';
-  }
 };
 
 console.log('Ready to build amazing things! 🚀');`
 
 const socialLinks = [
   {
-    icon: Github,
+    icon: FaGithub,
     label: "GitHub",
     href: "https://github.com/mdtanvirislamrakib",
     color: "hover:text-gray-300",
     bgColor: "hover:bg-gray-800",
   },
   {
-    icon: Linkedin,
+    icon: FaLinkedin,
     label: "LinkedIn",
     href: "https://www.linkedin.com/in/tanvir-islam-rakib/",
     color: "hover:text-blue-400",
     bgColor: "hover:bg-blue-500/10",
   },
   {
-    icon: MessageCircle,
+    icon: FaWhatsapp,
     label: "WhatsApp",
     href: "https://wa.me/+8801902264231",
     color: "hover:text-green-400",
