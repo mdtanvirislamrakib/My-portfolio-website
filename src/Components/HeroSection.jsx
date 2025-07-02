@@ -1,191 +1,403 @@
-import { HiDownload } from 'react-icons/hi';
-import { FaGithub, FaLinkedin, FaCode, FaWhatsapp } from 'react-icons/fa';
-import Prism from 'prismjs';
-import 'prismjs/themes/prism-tomorrow.css';
-import 'prismjs/components/prism-javascript';
-import { useEffect, useState } from 'react';
-import { motion } from 'framer-motion';
-import { Typewriter } from 'react-simple-typewriter';
+"use client"
 
-const HeroSection = () => {
-  const [loaded, setLoaded] = useState(false);
+import { useState, useEffect } from "react"
+import { motion, AnimatePresence } from "framer-motion"
+import { Download, Github, Linkedin, MessageCircle, Copy, Check, Code2, Sparkles } from "lucide-react"
 
-  useEffect(() => {
-    setLoaded(true);
-    Prism.highlightAll();
-  }, []);
+const roles = [
+  "MERN Stack Developer",
+  "Frontend Developer",
+  "React Developer",
+  "JavaScript Developer",
+  "Tech Enthusiast",
+]
 
-  const codeSnippet = `// Professional Profile
+const codeSnippet = `// Professional Profile
 const developer = {
   name: 'MD. Tanvir Islam Rakib',
   title: 'Junior MERN Stack Developer',
   expertise: ['React', 'Node.js', 'Express', 'MongoDB'],
-  experience: 'I am fresher',
   availability: 'Open for opportunities',
-  contact: 'mdtanvirislamrakib7@gmail.com'
-};`.trim();
+  contact: 'mdtanvirislamrakib7@gmail.com',
+  getSkills() {
+    return this.expertise.map(skill => ({
+      name: skill,
+      level: 'Advanced',
+      yearsOfExperience: 2
+    }));
+  },
+  
+  isAvailable() {
+    return this.availability === 'Open for opportunities';
+  }
+};
 
-  const floatAnimation = {
-    y: [0, -15, 0],
-    transition: {
-      duration: 6,
-      repeat: Infinity,
-      ease: 'easeInOut',
-    },
-  };
+console.log('Ready to build amazing things! 🚀');`
+
+const socialLinks = [
+  {
+    icon: Github,
+    label: "GitHub",
+    href: "https://github.com/mdtanvirislamrakib",
+    color: "hover:text-gray-300",
+    bgColor: "hover:bg-gray-800",
+  },
+  {
+    icon: Linkedin,
+    label: "LinkedIn",
+    href: "https://www.linkedin.com/in/tanvir-islam-rakib/",
+    color: "hover:text-blue-400",
+    bgColor: "hover:bg-blue-500/10",
+  },
+  {
+    icon: MessageCircle,
+    label: "WhatsApp",
+    href: "https://wa.me/+8801902264231",
+    color: "hover:text-green-400",
+    bgColor: "hover:bg-green-500/10",
+  },
+]
+
+// Custom Typewriter Hook
+function useTypewriter(words, speed = 100, deleteSpeed = 50, delaySpeed = 2000) {
+  const [currentWordIndex, setCurrentWordIndex] = useState(0)
+  const [currentText, setCurrentText] = useState("")
+  const [isDeleting, setIsDeleting] = useState(false)
+
+  useEffect(() => {
+    const currentWord = words[currentWordIndex]
+
+    const timeout = setTimeout(
+      () => {
+        if (!isDeleting) {
+          if (currentText.length < currentWord.length) {
+            setCurrentText(currentWord.slice(0, currentText.length + 1))
+          } else {
+            setTimeout(() => setIsDeleting(true), delaySpeed)
+          }
+        } else {
+          if (currentText.length > 0) {
+            setCurrentText(currentText.slice(0, -1))
+          } else {
+            setIsDeleting(false)
+            setCurrentWordIndex((prev) => (prev + 1) % words.length)
+          }
+        }
+      },
+      isDeleting ? deleteSpeed : speed,
+    )
+
+    return () => clearTimeout(timeout)
+  }, [currentText, currentWordIndex, isDeleting, words, speed, deleteSpeed, delaySpeed])
+
+  return currentText
+}
+
+// Custom Tooltip Component
+function Tooltip({ children, content }) {
+  const [isVisible, setIsVisible] = useState(false)
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center px-4 pt-24 pb-12 overflow-hidden bg-black">
-      {/* Glass morphism overlay */}
-      <motion.div
-        initial={{ opacity: 1 }}
-        animate={{ opacity: loaded ? 1 : 0 }}
-        transition={{ duration: 1 }}
-        className="absolute inset-0 bg-gradient-to-br from-gray-900/70 to-gray-800/80 backdrop-blur-3xl z-0"
-      ></motion.div>
+    <div className="relative inline-block">
+      <div onMouseEnter={() => setIsVisible(true)} onMouseLeave={() => setIsVisible(false)}>
+        {children}
+      </div>
+      {isVisible && (
+        <div className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 px-2 py-1 text-xs text-white bg-gray-900 rounded shadow-lg whitespace-nowrap z-50">
+          {content}
+          <div className="absolute top-full left-1/2 transform -translate-x-1/2 border-4 border-transparent border-t-gray-900"></div>
+        </div>
+      )}
+    </div>
+  )
+}
 
-      {/* Floating glowing shapes */}
+export default function HeroSection() {
+  const [copied, setCopied] = useState(false)
+  const [mounted, setMounted] = useState(false)
+  const typewriterText = useTypewriter(roles)
+
+  useEffect(() => {
+    setMounted(true)
+  }, [])
+
+  const handleCopyCode = async () => {
+    try {
+      await navigator.clipboard.writeText(codeSnippet)
+      setCopied(true)
+      setTimeout(() => setCopied(false), 2000)
+    } catch (err) {
+      console.error("Failed to copy code:", err)
+    }
+  }
+
+  const floatingAnimation = {
+    y: [0, -20, 0],
+    transition: {
+      duration: 6,
+      repeat: Number.POSITIVE_INFINITY,
+      ease: "easeInOut",
+    },
+  }
+
+  if (!mounted) return null
+
+  return (
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950">
+      {/* Background Elements */}
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-blue-900/20 via-slate-900/50 to-slate-950" />
+      <div className="absolute inset-0 bg-grid-white/[0.02] bg-[size:50px_50px]" />
+
+      {/* Floating Elements */}
       <motion.div
-        animate={floatAnimation}
-        className="absolute top-1/4 left-1/4 w-36 h-36 bg-blue-600/30 rounded-full blur-3xl z-0"
+        animate={floatingAnimation}
+        className="absolute top-1/4 left-1/4 w-72 h-72 bg-blue-500/10 rounded-full blur-3xl"
       />
       <motion.div
-        animate={{ ...floatAnimation, y: [0, -20, 0] }}
-        className="absolute bottom-1/3 right-1/4 w-44 h-44 bg-purple-600/30 rounded-full blur-3xl z-0"
+        animate={{ ...floatingAnimation, y: [0, -30, 0] }}
+        className="absolute bottom-1/3 right-1/4 w-96 h-96 bg-purple-500/10 rounded-full blur-3xl"
+      />
+      <motion.div
+        animate={{ ...floatingAnimation, y: [0, 15, 0] }}
+        className="absolute top-1/2 right-1/3 w-48 h-48 bg-cyan-500/10 rounded-full blur-3xl"
       />
 
-      <div className="relative z-10 w-full max-w-7xl mx-auto">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-          {/* Left - Intro */}
+      <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+          {/* Left Content */}
           <motion.div
-            initial={{ opacity: 1, y: 30 }}
-            animate={loaded ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.8 }}
+            initial={{ opacity: 0, x: -50 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
             className="space-y-8"
           >
-            <div className="space-y-4">
-              <h1 className="text-5xl md:text-6xl font-bold text-white leading-tight">
-                Hello, I'm <span className="text-blue-400">MD. Tanvir Islam Rakib</span>
-              </h1>
-              <div className="flex items-center space-x-4">
-                <div className="w-20 h-1 bg-gradient-to-r from-blue-500 to-blue-700 rounded-full" />
-                <h2 className="text-3xl font-medium text-gray-300">
-                  <Typewriter
-                    words={['MERN Stack Developer', 'Frontend Developer', 'React Developer', 'JavaScript Developer', 'Tech Enthusiast']}
-                    loop
-                    cursor
-                    cursorStyle="|"
-                    typeSpeed={70}
-                    deleteSpeed={50}
-                    delaySpeed={2000}
-                  />
-                </h2>
+            {/* Status Badge */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.2, duration: 0.6 }}
+            >
+              <div className="inline-flex items-center px-4 py-2 rounded-full bg-green-500/10 text-green-400 border border-green-500/20 text-sm font-medium">
+                <div className="w-2 h-2 bg-green-400 rounded-full mr-2 animate-pulse" />
+                Available for opportunities
               </div>
-            </div>
+            </motion.div>
 
-            <p className="text-lg text-gray-300 leading-relaxed max-w-2xl">
-              I architect and build scalable web applications with cutting-edge technologies. Passionate about writing
-              clean, maintainable code and delivering seamless user experiences.
-            </p>
-
-            <div className="flex flex-wrap items-center gap-6 pt-6">
-              <motion.button
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                className="group relative overflow-hidden px-8 py-4 bg-gradient-to-r from-blue-600 to-blue-800 rounded-xl shadow-lg hover:shadow-blue-600/30 transition-all duration-300"
+            {/* Main Heading */}
+            <div className="space-y-6">
+              <motion.h1
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.3, duration: 0.8 }}
+                className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold leading-tight"
               >
-                <div className="absolute inset-0 bg-blue-700 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                <div className="relative flex items-center space-x-3">
-                  <HiDownload className="w-6 h-6 text-white" />
-                  <span className="text-lg font-semibold text-white">Download Resume</span>
-                </div>
-              </motion.button>
+                <span className="text-white">Hello, I'm</span>
+                <br />
+                <span className="bg-gradient-to-r from-blue-400 via-purple-400 to-cyan-400 bg-clip-text text-transparent">
+                  MD. Tanvir Islam Rakib
+                </span>
+              </motion.h1>
 
-              {/* Social Icons */}
-              <div className="flex space-x-5">
-                {[
-                  {
-                    icon: <FaGithub className="w-6 h-6" />,
-                    label: 'GitHub',
-                    link: 'https://github.com/mdtanvirislamrakib',
-                  },
-                  {
-                    icon: <FaLinkedin className="w-6 h-6" />,
-                    label: 'LinkedIn',
-                    link: 'https://www.linkedin.com/in/tanvir-islam-rakib/',
-                  },
-                  {
-                    icon: <FaWhatsapp className="w-6 h-6" />,
-                    label: 'WhatsApp',
-                    link: 'https://wa.me/+8801902264231',
-                  },
-                ].map((social, i) => (
-                  <motion.a
-                    key={i}
-                    href={social.link}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    whileHover={{ y: -4 }}
-                    whileTap={{ scale: 0.95 }}
-                    aria-label={social.label}
-                    className="p-4 bg-gray-800/50 hover:bg-gray-700/70 rounded-xl border border-gray-700/50 transition-all duration-300 group"
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.5, duration: 0.8 }}
+                className="flex items-center gap-4"
+              >
+                <div className="w-16 h-1 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full" />
+                <h2 className="text-2xl sm:text-3xl lg:text-4xl font-semibold text-slate-300 min-h-[1.2em]">
+                  {typewriterText}
+                  <motion.span
+                    animate={{ opacity: [1, 0] }}
+                    transition={{ duration: 0.8, repeat: Number.POSITIVE_INFINITY, repeatType: "reverse" }}
+                    className="text-blue-400 ml-1"
                   >
-                    <div className="text-gray-300 group-hover:text-white transition-colors">{social.icon}</div>
-                  </motion.a>
-                ))}
-              </div>
+                    |
+                  </motion.span>
+                </h2>
+              </motion.div>
             </div>
+
+            {/* Description */}
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.7, duration: 0.8 }}
+              className="text-lg lg:text-xl text-slate-400 leading-relaxed max-w-2xl"
+            >
+              I architect and build scalable web applications with cutting-edge technologies. Passionate about writing
+              clean, maintainable code and delivering seamless user experiences that make a difference.
+            </motion.p>
+
+            {/* CTA Buttons */}
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.9, duration: 0.8 }}
+              className="flex flex-col sm:flex-row items-start sm:items-center gap-6 pt-4"
+            >
+              <button className="group inline-flex items-center px-8 py-4 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white font-semibold rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 text-lg">
+                <Download className="w-5 h-5 mr-3 group-hover:animate-bounce" />
+                Download Resume
+              </button>
+
+              {/* Social Links */}
+              <div className="flex items-center gap-3">
+                {socialLinks.map((social, index) => {
+                  const IconComponent = social.icon
+                  return (
+                    <Tooltip key={index} content={social.label}>
+                      <a
+                        href={social.href}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        aria-label={social.label}
+                        className={`inline-flex items-center justify-center w-12 h-12 bg-slate-800/50 border border-slate-700/50 text-slate-400 ${social.color} ${social.bgColor} rounded-lg transition-all duration-300 hover:scale-110`}
+                      >
+                        <IconComponent className="w-5 h-5" />
+                      </a>
+                    </Tooltip>
+                  )
+                })}
+              </div>
+            </motion.div>
           </motion.div>
 
-          {/* Right - Code Block */}
+          {/* Right Content - Code Block */}
           <motion.div
-            initial={{ opacity: 1, y: 50 }}
-            animate={{ opacity: 1, y: 0 }}
+            initial={{ opacity: 0, x: 50 }}
+            animate={{ opacity: 1, x: 0 }}
             transition={{ delay: 0.4, duration: 0.8 }}
+            className="relative"
           >
-            <motion.div
-              whileHover={{ scale: 1.01 }}
-              className="bg-gray-900/60 backdrop-blur-xl rounded-2xl overflow-hidden border border-gray-700/50 shadow-2xl"
-            >
-              {/* Title Bar */}
-              <div className="flex items-center px-6 py-4 bg-gray-800/50 border-b border-gray-700/50">
-                <div className="flex space-x-2 mr-6">
-                  <div className="w-3.5 h-3.5 rounded-full bg-red-500" />
-                  <div className="w-3.5 h-3.5 rounded-full bg-yellow-500" />
-                  <div className="w-3.5 h-3.5 rounded-full bg-green-500" />
+            <motion.div whileHover={{ scale: 1.02 }} transition={{ duration: 0.3 }} className="relative">
+              <div className="bg-slate-900/50 border border-slate-800/50 backdrop-blur-sm rounded-lg overflow-hidden shadow-2xl">
+                {/* Terminal Header */}
+                <div className="flex items-center justify-between px-6 py-4 bg-slate-800/50 border-b border-slate-700/50">
+                  <div className="flex items-center gap-4">
+                    <div className="flex gap-2">
+                      <div className="w-3 h-3 rounded-full bg-red-500" />
+                      <div className="w-3 h-3 rounded-full bg-yellow-500" />
+                      <div className="w-3 h-3 rounded-full bg-green-500" />
+                    </div>
+                    <div className="flex items-center gap-2 text-slate-400">
+                      <Code2 className="w-4 h-4" />
+                      <span className="text-sm font-mono">profile.js</span>
+                    </div>
+                  </div>
+
+                  <button
+                    onClick={handleCopyCode}
+                    className="flex items-center gap-2 px-3 py-1 text-slate-400 hover:text-white transition-colors rounded hover:bg-slate-700/50"
+                  >
+                    <AnimatePresence mode="wait">
+                      {copied ? (
+                        <motion.div
+                          key="check"
+                          initial={{ scale: 0 }}
+                          animate={{ scale: 1 }}
+                          exit={{ scale: 0 }}
+                          className="flex items-center gap-2"
+                        >
+                          <Check className="w-4 h-4 text-green-400" />
+                          <span className="text-sm">Copied!</span>
+                        </motion.div>
+                      ) : (
+                        <motion.div
+                          key="copy"
+                          initial={{ scale: 0 }}
+                          animate={{ scale: 1 }}
+                          exit={{ scale: 0 }}
+                          className="flex items-center gap-2"
+                        >
+                          <Copy className="w-4 h-4" />
+                          <span className="text-sm">Copy</span>
+                        </motion.div>
+                      )}
+                    </AnimatePresence>
+                  </button>
                 </div>
-                <div className="text-sm text-gray-400 font-mono">profile.js</div>
+
+                {/* Code Content */}
+                <div className="p-6 bg-slate-950/50">
+                  <pre className="text-sm lg:text-base font-mono text-slate-300 leading-relaxed overflow-x-auto">
+                    <code className="language-javascript">
+                      <span className="text-slate-500">// Professional Profile</span>
+                      {"\n"}
+                      <span className="text-purple-400">const</span> <span className="text-blue-400">developer</span>{" "}
+                      <span className="text-slate-300">=</span> <span className="text-yellow-400">{"{"}</span>
+                      {"\n"}
+                      {"  "}
+                      <span className="text-green-400">name</span>
+                      <span className="text-slate-300">:</span>{" "}
+                      <span className="text-orange-400">'MD. Tanvir Islam Rakib'</span>
+                      <span className="text-slate-300">,</span>
+                      {"\n"}
+                      {"  "}
+                      <span className="text-green-400">title</span>
+                      <span className="text-slate-300">:</span>{" "}
+                      <span className="text-orange-400">'Junior MERN Stack Developer'</span>
+                      <span className="text-slate-300">,</span>
+                      {"\n"}
+                      {"  "}
+                      <span className="text-green-400">expertise</span>
+                      <span className="text-slate-300">:</span> <span className="text-yellow-400">[</span>
+                      <span className="text-orange-400">'React'</span>
+                      <span className="text-slate-300">,</span> <span className="text-orange-400">'Node.js'</span>
+                      <span className="text-slate-300">,</span> <span className="text-orange-400">'Express'</span>
+                      <span className="text-slate-300">,</span> <span className="text-orange-400">'MongoDB'</span>
+                      <span className="text-yellow-400">]</span>
+                      <span className="text-slate-300">,</span>
+                      {"\n"}
+                      {"  "}
+                      <span className="text-green-400">availability</span>
+                      <span className="text-slate-300">:</span>{" "}
+                      <span className="text-orange-400">'Open for opportunities'</span>
+                      <span className="text-slate-300">,</span>
+                      {"\n"}
+                      {"  "}
+                      <span className="text-green-400">contact</span>
+                      <span className="text-slate-300">:</span>{" "}
+                      <span className="text-orange-400">'mdtanvirislamrakib7@gmail.com'</span>
+                      {"\n"}
+                      <span className="text-yellow-400">{"}"}</span>
+                      <span className="text-slate-300">;</span>
+                      {"\n\n"}
+                      <span className="text-blue-400">console</span>
+                      <span className="text-slate-300">.</span>
+                      <span className="text-yellow-400">log</span>
+                      <span className="text-slate-300">(</span>
+                      <span className="text-orange-400">'Ready to build amazing things! 🚀'</span>
+                      <span className="text-slate-300">);</span>
+                    </code>
+                  </pre>
+                </div>
+
+                {/* Footer */}
+                <div className="flex items-center justify-between px-6 py-3 bg-slate-800/30 border-t border-slate-700/50">
+                  <div className="flex items-center gap-2 text-slate-500 text-xs">
+                    <Sparkles className="w-3 h-3" />
+                    <span>ES6 JavaScript</span>
+                  </div>
+                  <div className="text-xs text-slate-500">Lines: 12 | Characters: 284</div>
+                </div>
               </div>
 
-              {/* Code */}
-              <pre className="language-javascript max-h-[400px] overflow-auto p-6 text-sm md:text-base">
-                <code
-                  className="language-javascript"
-                  dangerouslySetInnerHTML={{
-                    __html: Prism.highlight(codeSnippet, Prism.languages.javascript, 'javascript'),
-                  }}
-                />
-              </pre>
-
-              {/* Footer */}
-              <div className="flex justify-between items-center px-6 py-4 bg-gray-800/50 border-t border-gray-700/50">
-                <div className="text-xs text-gray-500 font-mono">ES6 JavaScript</div>
-                <motion.button
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                  className="flex items-center space-x-2 text-blue-400 hover:text-blue-300 transition-colors"
-                  onClick={() => navigator.clipboard.writeText(codeSnippet)}
-                >
-                  <FaCode className="w-4 h-4" />
-                  <span className="text-sm font-medium">Copy</span>
-                </motion.button>
-              </div>
+              {/* Floating Elements around code block */}
+              <motion.div
+                animate={{ rotate: 360 }}
+                transition={{ duration: 20, repeat: Number.POSITIVE_INFINITY, ease: "linear" }}
+                className="absolute -top-4 -right-4 w-8 h-8 bg-blue-500/20 rounded-full blur-sm"
+              />
+              <motion.div
+                animate={{ rotate: -360 }}
+                transition={{ duration: 15, repeat: Number.POSITIVE_INFINITY, ease: "linear" }}
+                className="absolute -bottom-4 -left-4 w-6 h-6 bg-purple-500/20 rounded-full blur-sm"
+              />
             </motion.div>
           </motion.div>
         </div>
       </div>
     </section>
-  );
-};
-
-export default HeroSection;
+  )
+}

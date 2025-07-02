@@ -15,7 +15,7 @@ const projects = [
     image: historiVault,
     github: 'https://github.com/mdtanvirislamrakib/Historical-Artifacts-Website',
     live: 'https://historical-artifacts.netlify.app/',
-    bgColor: 'bg-gradient-to-br from-gray-950 via-blue-900 to-violet-800',
+    bgColor: 'bg-gradient-to-br from-gray-900 via-blue-900 to-violet-950',
     techStack: [
       { name: 'React', icon: <FaReact className="text-blue-400" /> },
       { name: 'Node.js', icon: <FaNodeJs className="text-green-500" /> },
@@ -31,7 +31,7 @@ const projects = [
     image: taskHub,
     github: 'https://github.com/mdtanvirislamrakib/Freelance-task-marketplace-client',
     live: 'https://freelance-task-matketplace.netlify.app/',
-    bgColor: 'bg-gradient-to-br from-gray-950 via-blue-900 to-violet-800',
+    bgColor: 'bg-gradient-to-br from-gray-900 via-blue-900 to-violet-950',
     techStack: [
       { name: 'React', icon: <FaReact className="text-blue-400" /> },
       { name: 'Tailwind CSS', icon: <SiTailwindcss className="text-cyan-400" /> },
@@ -47,7 +47,7 @@ const projects = [
     image: eventify,
     github: 'https://github.com/mdtanvirislamrakib/Event-Explorer-Website',
     live: 'https://eventify-explore-events.netlify.app/',
-    bgColor: 'bg-gradient-to-br from-gray-950 via-blue-900 to-violet-800',
+    bgColor: 'bg-gradient-to-br from-gray-900 via-blue-900 to-violet-950',
     techStack: [
       { name: 'React', icon: <FaReact className="text-blue-400" /> },
       { name: 'React Router', icon: <SiReactrouter className="text-red-400" /> },
@@ -62,7 +62,7 @@ const projects = [
     image: madicare,
     github: 'https://github.com/mdtanvirislamrakib/PHUDU-Medical',
     live: 'https://splendid-stroopwafel-1f5da0.netlify.app/',
-    bgColor: 'bg-gradient-to-br from-gray-950 via-blue-900 to-violet-800',
+    bgColor: 'bg-gradient-to-br from-gray-900 via-blue-900 to-violet-950',
     techStack: [
       { name: 'React', icon: <FaReact className="text-blue-400" /> },
       { name: 'Tailwind CSS', icon: <SiTailwindcss className="text-cyan-400" /> },
