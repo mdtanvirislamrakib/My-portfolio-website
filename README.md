@@ -20,7 +20,7 @@ Check out the live version of this portfolio:
 
 > 📸 Replace with an actual screenshot of your project
 
-![Portfolio Preview](./src/assets/home.PNG)
+![Portfolio Preview](./src/assets/asdgaertasdfasdf.PNG)
 
 ---
 
