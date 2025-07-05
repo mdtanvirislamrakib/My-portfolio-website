@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from "framer-motion"
 import { Download, Copy, Check, Code2, Sparkles } from "lucide-react"
 
 import { FaWhatsapp, FaLinkedin, FaGithub   } from "react-icons/fa";
+import { useNavigate } from "react-router";
 
 const roles = [
   "MERN Stack Developer",
@@ -105,6 +106,7 @@ export default function HeroSection() {
   const [copied, setCopied] = useState(false)
   const [mounted, setMounted] = useState(false)
   const typewriterText = useTypewriter(roles)
+  const navigate = useNavigate();
 
   useEffect(() => {
     setMounted(true)
@@ -127,6 +129,10 @@ export default function HeroSection() {
       repeat: Number.POSITIVE_INFINITY,
       ease: "easeInOut",
     },
+  }
+
+  const downloadResume = () => {
+    navigate("./rakib-resume.pdf")
   }
 
   if (!mounted) return null
@@ -225,10 +231,10 @@ export default function HeroSection() {
               transition={{ delay: 0.9, duration: 0.8 }}
               className="flex flex-col sm:flex-row items-start sm:items-center gap-6 pt-4"
             >
-              <button className="group inline-flex items-center px-8 py-4 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white font-semibold rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 text-lg">
+              <a href="/rakib-resume.pdf" download={"MD-Tanvir-Islam-Rakib-Resume.pdf"} className="group inline-flex items-center px-8 py-4 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white font-semibold rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 text-lg">
                 <Download className="w-5 h-5 mr-3 group-hover:animate-bounce" />
                 Download Resume
-              </button>
+              </a>
 
               {/* Social Links */}
               <div className="flex items-center gap-3">
