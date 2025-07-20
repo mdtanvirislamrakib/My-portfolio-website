@@ -1,14 +1,32 @@
 import { FaGithub, FaExternalLinkAlt, FaReact, FaNodeJs, FaGithub as FaGithubIcon } from 'react-icons/fa';
 import { SiTailwindcss, SiJavascript, SiMongodb, SiExpress, SiFramer, SiJsonwebtokens, SiNetlify, SiVercel, SiReactrouter, SiFirebase, SiSoundcharts } from 'react-icons/si';
 import { TbBrandFramerMotion } from "react-icons/tb";
+import { FaStripe } from "react-icons/fa";
 import { motion } from 'framer-motion';
 
 import historiVault from "../assets/historiVault.PNG";
 import taskHub from "../assets/freelance-task.PNG";
 import eventify from "../assets/event.PNG";
 import madicare from "../assets/madicare.PNG";
+import microJob from "../assets/microjob.PNG"
 
 const projects = [
+  {
+    name: 'MicroJob',
+    desc: 'The Micro Tasking and Earning Platform is a role-based web application where users can earn by completing small tasks or create paid tasks for others. It features secure authentication, dynamic dashboards, and real-time coin-based transactions.',
+    image: microJob,
+    github: 'https://github.com/mdtanvirislamrakib/Micro-Job-Website-Client',
+    live: 'https://microjob-website.netlify.app/',
+    bgColor: 'bg-gradient-to-br from-gray-900 via-blue-900 to-violet-950',
+    techStack: [
+      { name: 'React', icon: <FaReact className="text-blue-400" /> },
+      { name: 'Node.js', icon: <FaNodeJs className="text-green-500" /> },
+      { name: 'Express', icon: <SiExpress className="text-gray-300" /> },
+      { name: 'MongoDB', icon: <SiMongodb className="text-green-400" /> },
+      { name: 'JWT', icon: <SiJsonwebtokens className="text-rose-400" /> },
+      { name: 'Stripe', icon: <FaStripe className="text-blue-400" /> },
+    ],
+  },
   {
     name: 'HistoriVault',
     desc: 'A full-stack MERN-based web application designed to preserve and showcase historical artifacts like the Rosetta Stone, Antikythera Mechanism, and many more. Users can explore, like, and contribute their own historical findings, all within a sleek, interactive, and secure interface.',
